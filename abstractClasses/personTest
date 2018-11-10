@@ -1,0 +1,11 @@
+public class PersonTest {
+    public static void main(String args[]){
+        Person[] people = new Person[2];
+
+        people[0] = new Employee("Huanv", 80000,1999,2,9);
+        people[1] = new Student("Mira","XinZhu UNC");
+
+        for (Person p : people) //遍历数组并输出
+            System.out.println(p.getName() + "," + p.getDescription());
+    }
+}
