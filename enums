@@ -1,0 +1,31 @@
+
+import java.security.PrivateKey;
+import java.util.*;
+
+public class EnumTest {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter a size:(S,M,L,XL)");
+        
+        //toUpperCase将字符串一律转换为大写
+        String input = in.next().toUpperCase();
+        
+        //读取输入的字符
+        Size size = Enum.valueOf(Size.class, input);
+        System.out.println("size=" + size);
+        System.out.println("abbreviation=" + size.getAbbreviation());
+        
+        //枚举类定义的对象不能使用equals，只能使用 == 来进行比较
+        if (size == Size.XL)
+            System.out.println("Good job--you paid attention to the _.");
+    }
+}
+
+enum Size{
+    S("S"),M("M"),L("L"),XL("XL");
+
+    private Size(String abbreviation){this.abbreviation = abbreviation;}
+    public String getAbbreviation(){return abbreviation;}
+
+    private String abbreviation;
+}
